@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using SpecificationPattern.Data;
+
+Shop shop = new Shop();
+var products = shop.GetProducts();
+
+foreach(var product in products)
+{
+    Console.WriteLine(product.Name);
+}
