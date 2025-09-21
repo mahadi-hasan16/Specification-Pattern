@@ -8,6 +8,6 @@ namespace SpecificationPattern.Specifications
 {
     public class BaseSpecification<T> : ISpecification<T>
     {
-        public Func<T, bool> Criteria { get; set; }
+        public Func<T, bool> Criteria { get; set; } = p => true;
     }
 }

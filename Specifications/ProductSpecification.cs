@@ -9,20 +9,9 @@ namespace SpecificationPattern.Specifications
 {
     public class ProductSpecification : BaseSpecification<Product>
     {
-        public ProductSpecification(string? brand, string? type)
+        public ProductSpecification(string? brand = "", string? type = "")
         {
-            _brand = brand;
-            _type = type;
-            SetCriteria();
-        }
-        private string? _brand = string.Empty;
-        private string? _type = string.Empty;
-                
-        public Func<Product, bool> criteria = p => true;
-
-        private void SetCriteria()
-        {
-            criteria = p => (string.IsNullOrEmpty(_brand) || p.Brand == _brand) && (string.IsNullOrWhiteSpace(_type) || p.Type == _type);
+            Criteria = p => ((string.IsNullOrEmpty(brand) || string.IsNullOrWhiteSpace(brand) || p.Brand == brand) && (string.IsNullOrEmpty(type) || string.IsNullOrWhiteSpace(type) || p.Type == type));
         }
     }
 }
